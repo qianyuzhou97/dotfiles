@@ -117,7 +117,6 @@ set autowrite
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
-autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
@@ -130,3 +129,6 @@ function! s:build_go_files()
 endfunction
 
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+nmap <leader>z :!go run ~/go/src/hc.cn/operator/cmd/mysql-operator/operator.go --kubeconfig="/home/qianyu/.kube/config"<CR>

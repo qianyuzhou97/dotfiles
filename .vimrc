@@ -7,6 +7,8 @@ syntax on
 " Disable the default Vim startup message.
 set shortmess+=I
 
+" for shift o lagging
+set ttimeoutlen=100
 " Show line numbers.
 set number
 
@@ -117,6 +119,8 @@ function! s:build_go_files()
     call go#cmd#Build(0)
   endif
 endfunction
+
+let g:go_auto_sameids = 1
 
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>t  <Plug>(go-test)

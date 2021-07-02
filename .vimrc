@@ -82,6 +82,8 @@ map <LEADER>h <C-w>h
 map <LEADER>j <C-w>j
 map <LEADER>o <C-w>o
 map <LEADER>c <C-w>c
+map <LEADER>p <C-w>p
+
 
 call plug#begin('~/.vim/plugged')
 
@@ -91,19 +93,23 @@ Plug 'preservim/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'SirVer/ultisnips'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 "Nerd Tree
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+" nnoremap <C-f> :NERDTreeFind<CR>
 
 autocmd vimenter * ++nested colorscheme gruvbox
 
 set background=dark    " Setting dark mode
 
+" ctrlp vim
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
+"easymotion
+nmap ss <Plug>(easymotion-s2)
 "vim-go
 set autowrite
 map <C-n> :cnext<CR>

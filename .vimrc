@@ -98,7 +98,7 @@ call plug#end()
 
 "Nerd Tree
 nnoremap <C-t> :NERDTreeToggle<CR>
-" nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <LEADER>f :NERDTreeFind<CR>
 
 autocmd vimenter * ++nested colorscheme gruvbox
 

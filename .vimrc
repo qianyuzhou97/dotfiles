@@ -94,6 +94,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'SirVer/ultisnips'
 Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 "Nerd Tree

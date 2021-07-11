@@ -84,6 +84,7 @@ map <LEADER>o <C-w>o
 map <LEADER>c <C-w>c
 map <LEADER>p <C-w>p
 
+noremap <Leader>s :update<CR>
 
 call plug#begin('~/.vim/plugged')
 
@@ -95,6 +96,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'SirVer/ultisnips'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
+Plug 'preservim/tagbar'
 call plug#end()
 
 "Nerd Tree
@@ -111,6 +113,11 @@ let g:ctrlp_cmd = 'CtrlP'
 
 "easymotion
 nmap ss <Plug>(easymotion-s2)
+
+" tagbar
+nmap <F8> :TagbarToggle<CR>
+
+
 "vim-go
 set autowrite
 map <C-n> :cnext<CR>
@@ -126,6 +133,12 @@ function! s:build_go_files()
     call go#cmd#Build(0)
   endif
 endfunction
+
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+
 
 let g:go_auto_sameids = 1
 

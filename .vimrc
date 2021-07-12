@@ -97,6 +97,7 @@ Plug 'SirVer/ultisnips'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
 Plug 'preservim/tagbar'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 "Nerd Tree

@@ -98,6 +98,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
 Plug 'preservim/tagbar'
 Plug 'jiangmiao/auto-pairs'
+Plug 'wellle/targets.vim'
 call plug#end()
 
 "Nerd Tree

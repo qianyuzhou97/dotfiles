@@ -84,7 +84,7 @@ map <LEADER>o <C-w>o
 map <LEADER>c <C-w>c
 map <LEADER>p <C-w>p
 
-noremap <Leader>s :update<CR>
+noremap <Leader>w :update<CR>
 
 call plug#begin('~/.vim/plugged')
 

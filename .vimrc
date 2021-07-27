@@ -121,6 +121,7 @@ nmap ss <Plug>(easymotion-s2)
 nmap <F8> :TagbarToggle<CR>
 
 " coc-nvim
+autocmd FileType go nmap st :CocCommand go.test.toggle <cr>
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 set encoding=utf-8
 set nobackup
@@ -296,7 +297,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 "autocmd FileType go nmap <leader>t  <Plug>(go-test)
 "autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 "nmap <leader>z :!go run ~/go/src/hc.cn/operator/cmd/mysql-operator/operator.go --kubeconfig="/home/qianyu/.kube/config"<CR>
-"autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 "autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 "autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 "autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')

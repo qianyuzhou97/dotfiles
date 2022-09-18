@@ -92,8 +92,6 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Plug 'SirVer/ultisnips'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
 Plug 'preservim/tagbar'
@@ -119,43 +117,3 @@ nmap ss <Plug>(easymotion-s2)
 " tagbar
 nmap <F8> :TagbarToggle<CR>
 
-
-"vim-go
-"set autowrite
-"map <C-n> :cnext<CR>
-"map <C-m> :cprevious<CR>
-"nnoremap <leader>a :cclose<CR>
-"autocmd FileType go nmap <leader>r  <Plug>(go-run)
-"" run :GoBuild or :GoTestCompile based on the go file
-"function! s:build_go_files()
-"  let l:file = expand('%')
-"  if l:file =~# '^\f\+_test\.go$'
-"    call go#test#Test(0, 1)
-"  elseif l:file =~# '^\f\+\.go$'
-"    call go#cmd#Build(0)
-"  endif
-"endfunction
-
-"autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-"autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-"autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-"autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-
-
-"let g:go_auto_sameids = 1
-
-"autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-"autocmd FileType go nmap <leader>t  <Plug>(go-test)
-"autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-"nmap <leader>z :!go run ~/go/src/hc.cn/operator/cmd/mysql-operator/operator.go --kubeconfig="/home/qianyu/.kube/config"<CR>
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
-"autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-"autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-"autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-"autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-"autocmd FileType go nmap <Leader>i <Plug>(go-info)
-"let g:go_auto_type_info = 1
-"set updatetime=100
-"let g:go_auto_sameids = 1
-"let g:go_template_autocreate = 0
-"let g:go_template_use_pkg = 1

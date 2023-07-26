@@ -1,104 +1,66 @@
-" .ideavimrc is a configuration file for IdeaVim plugin. It uses
-"   the same commands as the original .vimrc configuration.
-" You can find a list of commands here: https://jb.gg/h38q75
-" Find more examples here: https://jb.gg/share-ideavimrc
-
-
-"" -- Suggested options --
 " Show a few lines of context around the cursor. Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
 set scrolloff=5
 set clipboard+=unnamed
-set clipboard+=ideaput
+
 set number relativenumber
-nnoremap \e :e ~/.ideavimrc<CR>
-nnoremap \l :action IdeaVim.ReloadVimRc.reload<CR>
+
+
 let mapleader=" "
 
 " Do incremental searching.
 set incsearch
 
-" Don't use Ex mode, use Q for formatting.
-map Q gq
+set highlightedyank
+if !exists('##TextYankPost')
+  nmap y <Plug>(highlightedyank)
+  xmap y <Plug>(highlightedyank)
+  omap y <Plug>(highlightedyank)
+endif
 
-" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
-
-" Highlight copied text
-Plug 'machakann/vim-highlightedyank'
-" Commentary plugin
-Plug 'tpope/vim-commentary'
-
-Plug 'easymotion/vim-easymotion'
-
-
-
+set commentary
 set easymotion
-
-
-
-"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-"" Map \r to the Reformat Code action
-:map \r <Action>(ReformatCode)
-nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
-"" Map <leader>d to start debug
-:map <leader>d <Action>(Debug)
-
-"" Map \b to toggle the breakpoint on the current line
-:map \b <Action>(ToggleLineBreakpoint)
-
-nnoremap sl :action SplitVertically<CR>
-nnoremap sj :action SplitHorizontally<CR>
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <s-TAB> :action PreviousTab<CR>
-nnoremap <TAB> :action NextTab<CR>
-nnoremap <Leader>en :action EditSourceInNewWindow<CR>
-nnoremap <Leader>n :action NextWindow<CR>
-nnoremap <Leader>q :action CloseContent<CR>
-nnoremap <Leader>qa :action CloseAllEditors<CR>
-
+set NERDTree
 set ideajoin
 set idearefactormode=keep
-vnoremap < <gv
-vnoremap > >gv
-nnoremap [[ :action MethodUp<CR>
-nnoremap ]] :action MethodDown<CR>
-nnoremap zc :action CollapseRegion<CR>
-nnoremap zo :action ExpandRegion<CR>
-nnoremap <leader>zc :action CollapseAllRegions<CR>
-nnoremap <leader>zo :action ExpandAllRegions<CR>
-nnoremap <leader>c :action CommentByLineComment<CR>
-nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
-nnoremap <leader>o :action OptimizeImports<CR>
-nnoremap <c-r> :action RecentFiles<CR>
-nnoremap <leader>l :action RecentLocations<CR>
-nnoremap <leader>h  :action LocalHistory.ShowHistory<CR>
-nnoremap ge :action GotoNextError<CR>
-nnoremap gE :action GotoPreviousError<CR>
+
+map <leader>d <Action>(Debug)
+map <leader>r <Action>(Run)
+map <leader>w <Action>(SaveAll)
+
+nnoremap <Leader>h <c-w>h
+nnoremap <Leader>l <c-w>l
+nnoremap <Leader>j <c-w>j
+nnoremap <Leader>k <c-w>k
+
+map sj <Action>(SplitHorizontally)
+map sl <Action>(SplitVertically)
+map <s-TAB>  <Action>(PreviousTab)
+map <TAB> <Action>(NextTab)
+map <Leader>en <Action>(EditSourceInNewWindow)
+map <Leader>n <Action>(NextWindow)
+
+map [[ <Action>(MethodUp)
+map ]] <Action>(MethodDown)
+map zc <Action>(CollapseRegion)
+map zo <Action>(ExpandRegion)
+map <leader>zc <Action>(CollapseAllRegions)
+map <leader>zo <Action>(ExpandAllRegions)
+map <leader>g <Action>(Refactorings.QuickListPopupAction)
+map <c-q> <Action>(RecentFiles)
+map <leader>l <Action>(RecentLocations)
+map <leader>hs  <Action>(LocalHistory.ShowHistory)
+map ge <Action>(GotoNextError)
+map gE <Action>(GotoPreviousError)
 
 
-nnoremap <c-/> :action FindInPath<CR>
-nnoremap <c-a> :action GotoAction<CR>
-nnoremap <c-f> :action GotoFile<CR>
-nnoremap <leader>u :action FindUsages<CR>
-nnoremap <leader>s :action GotoRelated<CR>
-nnoremap <leader>h :action CallHierarchy<CR>
-nnoremap <leader>b :action ShowNavBar<CR>
-nnoremap <c-s> :action FileStructurePopup<CR>
-nnoremap <c-o> :action GotoSymbol<CR>
-nnoremap gc :action GotoClass<CR>
-nnoremap gi :action GotoImplementation<CR>
-nnoremap gd :action GotToDeclaration<CR>
-nnoremap gp :action GotToSuperMethod<CR>
-nnoremap gt :action GotoTest<CR>
-nnoremap gb :action Back<CR>
-nnoremap gf :action Forward<CR>
+map <leader>p <Action>(GotoFile)
+map <leader>h <Action>(CallHierarchy)
+map <leader>b <Action>(ShowNavBar)
+map gu <Action>(FindUsages)
+map gi <Action>(GotoImplementation)
+map gd <Action>(GotToDeclaration)
+map gt <Action>(GotoTest)
 
-
-nnoremap <c-p> :action JumpToLastWindow<CR>
-nnoremap <c-x> :action HideAllWindows<CR>
-
-map <leader>s <Plug>(easymotion-s2)
-nnoremap <leader>j <Plug>(easymotion-f)
+map <leader>t :NERDTreeToggle<CR>
+map <leader>f :NERDTreeFind<CR>

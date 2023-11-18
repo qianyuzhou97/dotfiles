@@ -12,6 +12,7 @@ set relativenumber
 set incsearch
 " 搜索高亮
 set hlsearch
+set timeoutlen=60
 
 set highlightedyank
 if !exists('##TextYankPost')

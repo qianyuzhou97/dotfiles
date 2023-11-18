@@ -1,15 +1,17 @@
-" Show a few lines of context around the cursor. Note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
-set scrolloff=5
-set clipboard+=unnamed
-
-set number relativenumber
-
-
 let mapleader=" "
 
-" Do incremental searching.
+" 共享系统粘贴板
+set clipboard+=unnamed
+" 上下方保留5行预览代码
+set scrolloff=5
+" 显示当前行号
+set number
+" 显示相对行号
+set relativenumber
+" 打开增量搜索模式,随着键入即时搜索
 set incsearch
+" 搜索高亮
+set hlsearch
 
 set highlightedyank
 if !exists('##TextYankPost')
@@ -18,25 +20,61 @@ if !exists('##TextYankPost')
   omap y <Plug>(highlightedyank)
 endif
 
-set commentary
-set easymotion
+" https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins
 set NERDTree
-set ideajoin
+set easymotion
+set multiple-cursors
+set commentary
+set argtextobj
+set textobj-entire
+set ReplaceWithRegister
+set exchange
+set vim-paragraph-motion
+set textobj-indent
+set sneak
+set surround
+
+nnoremap H ^
+nnoremap L g_
+nnoremap J 5j
+nnoremap K 5k
+
+vnoremap H ^
+vnoremap L g_
+vnoremap J 5j
+vnoremap K 5k
+
+" Tab切换
+nnoremap <tab> gt
+vnoremap <tab> gt
+nnoremap <s-tab> gT
+vnoremap <s-tab> gT
+
+
+" 窗口拆分
+nnoremap sj :action SplitVertically<CR>
+nnoremap sl :action SplitHorizontally<CR>
+nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
+nnoremap ;q :action Unsplit<CR>
+nnoremap ;a :action UnsplitAll<CR>
+
+
+nmap <leader>~ <action>(IdeaVim.ReloadVimRc.reload)
+
+
+" 窗口之间光标移动
+nnoremap <Leader>h <c-w>h
+nnoremap <Leader>l <c-w>l
+nnoremap <Leader>j <c-w>j
+nnoremap <Leader>k <c-w>k
+
+
 set idearefactormode=keep
 
 map <leader>d <Action>(Debug)
 map <leader>r <Action>(Run)
 map <leader>w <Action>(SaveAll)
 
-nnoremap <Leader>h <c-w>h
-nnoremap <Leader>l <c-w>l
-nnoremap <Leader>j <c-w>j
-nnoremap <Leader>k <c-w>k
-
-map sj <Action>(SplitHorizontally)
-map sl <Action>(SplitVertically)
-map <s-TAB>  <Action>(PreviousTab)
-map <TAB> <Action>(NextTab)
 map <Leader>en <Action>(EditSourceInNewWindow)
 map <Leader>n <Action>(NextWindow)
 
@@ -53,10 +91,8 @@ map <leader>hs  <Action>(LocalHistory.ShowHistory)
 map ge <Action>(GotoNextError)
 map gE <Action>(GotoPreviousError)
 
-
 map <leader>p <Action>(GotoFile)
 map <leader>h <Action>(CallHierarchy)
-map <leader>b <Action>(ShowNavBar)
 map gu <Action>(FindUsages)
 map gi <Action>(GotoImplementation)
 map gd <Action>(GotToDeclaration)

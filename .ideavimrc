@@ -12,7 +12,6 @@ set relativenumber
 set incsearch
 " 搜索高亮
 set hlsearch
-set timeoutlen=60
 
 set highlightedyank
 if !exists('##TextYankPost')
@@ -53,14 +52,12 @@ vnoremap <s-tab> gT
 
 
 " 窗口拆分
-nnoremap sj :action SplitVertically<CR>
-nnoremap sl :action SplitHorizontally<CR>
+nnoremap sl :action SplitVertically<CR>
+nnoremap sj :action SplitHorizontally<CR>
 nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
-nnoremap ;q :action Unsplit<CR>
-nnoremap ;a :action UnsplitAll<CR>
 
 
-nmap <leader>~ <action>(IdeaVim.ReloadVimRc.reload)
+nmap <leader>rl <action>(IdeaVim.ReloadVimRc.reload)
 
 
 " 窗口之间光标移动
@@ -69,31 +66,21 @@ nnoremap <Leader>l <c-w>l
 nnoremap <Leader>j <c-w>j
 nnoremap <Leader>k <c-w>k
 
-
 set idearefactormode=keep
 
 map <leader>d <Action>(Debug)
 map <leader>r <Action>(Run)
 map <leader>w <Action>(SaveAll)
 
-map <Leader>en <Action>(EditSourceInNewWindow)
-map <Leader>n <Action>(NextWindow)
-
-map [[ <Action>(MethodUp)
-map ]] <Action>(MethodDown)
 map zc <Action>(CollapseRegion)
 map zo <Action>(ExpandRegion)
 map <leader>zc <Action>(CollapseAllRegions)
 map <leader>zo <Action>(ExpandAllRegions)
 map <leader>g <Action>(Refactorings.QuickListPopupAction)
-map <c-q> <Action>(RecentFiles)
-map <leader>l <Action>(RecentLocations)
-map <leader>hs  <Action>(LocalHistory.ShowHistory)
+map <c-r> <Action>(RecentFiles)
 map ge <Action>(GotoNextError)
 map gE <Action>(GotoPreviousError)
-
 map <leader>p <Action>(GotoFile)
-map <leader>h <Action>(CallHierarchy)
 map gu <Action>(FindUsages)
 map gi <Action>(GotoImplementation)
 map gd <Action>(GotToDeclaration)

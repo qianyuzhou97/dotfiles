@@ -71,7 +71,8 @@ set idearefactormode=keep
 map <leader>d <Action>(Debug)
 map <leader>r <Action>(Run)
 map <leader>w <Action>(SaveAll)
-
+map [[ <Action>(MethodUp)
+map ]] <Action>(MethodDown)
 map zc <Action>(CollapseRegion)
 map zo <Action>(ExpandRegion)
 map <leader>zc <Action>(CollapseAllRegions)
@@ -83,7 +84,7 @@ map gE <Action>(GotoPreviousError)
 map <leader>p <Action>(GotoFile)
 map gu <Action>(FindUsages)
 map gi <Action>(GotoImplementation)
-map gd <Action>(GotToDeclaration)
+map gd <Action>(GotoDeclaration)
 map gt <Action>(GotoTest)
 
 map <leader>t :NERDTreeToggle<CR>

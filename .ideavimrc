@@ -13,16 +13,10 @@ set incsearch
 " 搜索高亮
 set hlsearch
 
-set highlightedyank
-if !exists('##TextYankPost')
-  nmap y <Plug>(highlightedyank)
-  xmap y <Plug>(highlightedyank)
-  omap y <Plug>(highlightedyank)
-endif
 
 " https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins
 set NERDTree
-set easymotion
+set highlightedyank
 set multiple-cursors
 set commentary
 set argtextobj
@@ -31,8 +25,8 @@ set ReplaceWithRegister
 set exchange
 set vim-paragraph-motion
 set textobj-indent
-set sneak
 set surround
+set matchit
 
 nnoremap H ^
 nnoremap L g_
@@ -52,9 +46,8 @@ vnoremap <s-tab> gT
 
 
 " 窗口拆分
-nnoremap sl :action SplitVertically<CR>
-nnoremap sj :action SplitHorizontally<CR>
-nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
+nnoremap wv :action SplitVertically<CR>
+nnoremap wh :action SplitHorizontally<CR>
 
 
 nmap <leader>rl <action>(IdeaVim.ReloadVimRc.reload)
@@ -78,7 +71,6 @@ map zo <Action>(ExpandRegion)
 map <leader>zc <Action>(CollapseAllRegions)
 map <leader>zo <Action>(ExpandAllRegions)
 map <leader>g <Action>(Refactorings.QuickListPopupAction)
-map <c-r> <Action>(RecentFiles)
 map ge <Action>(GotoNextError)
 map gE <Action>(GotoPreviousError)
 map <leader>p <Action>(GotoFile)
@@ -86,6 +78,7 @@ map gu <Action>(FindUsages)
 map gi <Action>(GotoImplementation)
 map gd <Action>(GotoDeclaration)
 map gt <Action>(GotoTest)
+map gh <Action>(ShowErrorDescription)
 
 map <leader>t :NERDTreeToggle<CR>
 map <leader>f :NERDTreeFind<CR>

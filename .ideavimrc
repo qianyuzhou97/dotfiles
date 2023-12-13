@@ -1,32 +1,22 @@
-let mapleader=" "
+let mapleader=' '
 
-" 共享系统粘贴板
 set clipboard+=unnamed
-" 上下方保留5行预览代码
-set scrolloff=5
-" 显示当前行号
 set number
-" 显示相对行号
 set relativenumber
-" 打开增量搜索模式,随着键入即时搜索
 set incsearch
-" 搜索高亮
 set hlsearch
 
 
 " https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins
 set NERDTree
 set highlightedyank
-set multiple-cursors
 set commentary
 set argtextobj
 set textobj-entire
 set ReplaceWithRegister
 set exchange
-set vim-paragraph-motion
 set textobj-indent
 set surround
-set matchit
 
 nnoremap H ^
 nnoremap L g_
@@ -38,47 +28,37 @@ vnoremap L g_
 vnoremap J 5j
 vnoremap K 5k
 
-" Tab切换
-nnoremap <tab> gt
-vnoremap <tab> gt
-nnoremap <s-tab> gT
-vnoremap <s-tab> gT
+nnoremap sl :action SplitVertically<CR>
+nnoremap sj :action SplitHorizontally<CR>
 
 
-" 窗口拆分
-nnoremap wv :action SplitVertically<CR>
-nnoremap wh :action SplitHorizontally<CR>
-
-
-nmap <leader>rl <action>(IdeaVim.ReloadVimRc.reload)
-
-
-" 窗口之间光标移动
-nnoremap <Leader>h <c-w>h
-nnoremap <Leader>l <c-w>l
-nnoremap <Leader>j <c-w>j
-nnoremap <Leader>k <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
 
 set idearefactormode=keep
 
 map <leader>d <Action>(Debug)
 map <leader>r <Action>(Run)
 map <leader>w <Action>(SaveAll)
-map [[ <Action>(MethodUp)
-map ]] <Action>(MethodDown)
+map [m <Action>(MethodUp)
+map ]m <Action>(MethodDown)
 map zc <Action>(CollapseRegion)
 map zo <Action>(ExpandRegion)
 map <leader>zc <Action>(CollapseAllRegions)
 map <leader>zo <Action>(ExpandAllRegions)
-map <leader>g <Action>(Refactorings.QuickListPopupAction)
-map ge <Action>(GotoNextError)
-map gE <Action>(GotoPreviousError)
-map <leader>p <Action>(GotoFile)
-map gu <Action>(FindUsages)
+map <leader>ca <Action>(Refactorings.QuickListPopupAction)
+map ]d <Action>(GotoNextError)
+map [d <Action>(GotoPreviousError)
+map <leader>sf <Action>(GotoFile)
+map <leader>sg <Action>(SearchEverywhere)
+map gr <Action>(FindUsages)
 map gi <Action>(GotoImplementation)
 map gd <Action>(GotoDeclaration)
-map gt <Action>(GotoTest)
-map gh <Action>(ShowErrorDescription)
+map <leader>q <Action>(ShowErrorDescription)
 
 map <leader>t :NERDTreeToggle<CR>
 map <leader>f :NERDTreeFind<CR>
+map <Leader> <Plug>(easymotion-prefix)
+map ss <Plug>(easymotion-s2)

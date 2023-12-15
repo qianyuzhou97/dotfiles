@@ -8,6 +8,7 @@ set hlsearch
 
 
 " https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins
+set easymotion
 set NERDTree
 set highlightedyank
 set commentary
@@ -18,7 +19,7 @@ set exchange
 set textobj-indent
 set surround
 
-nnoremap H ^
+noremap H ^
 nnoremap L g_
 nnoremap J 5j
 nnoremap K 5k
@@ -28,9 +29,11 @@ vnoremap L g_
 vnoremap J 5j
 vnoremap K 5k
 
-nnoremap sl :action SplitVertically<CR>
-nnoremap sj :action SplitHorizontally<CR>
+map tn gt
+map tp gT
 
+nnoremap wv :action SplitVertically<CR>
+nnoremap wh :action SplitHorizontally<CR>
 
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
@@ -39,9 +42,8 @@ nnoremap <c-k> <c-w>k
 
 set idearefactormode=keep
 
-map <leader>d <Action>(Debug)
-map <leader>r <Action>(Run)
-map <leader>w <Action>(SaveAll)
+map <leader>dd <Action>(Debug)
+map <leader>rr <Action>(Run)
 map [m <Action>(MethodUp)
 map ]m <Action>(MethodDown)
 map zc <Action>(CollapseRegion)
@@ -49,9 +51,11 @@ map zo <Action>(ExpandRegion)
 map <leader>zc <Action>(CollapseAllRegions)
 map <leader>zo <Action>(ExpandAllRegions)
 map <leader>ca <Action>(Refactorings.QuickListPopupAction)
+map <leader>rn <Action>(RenameElement)
 map ]d <Action>(GotoNextError)
 map [d <Action>(GotoPreviousError)
 map <leader>sf <Action>(GotoFile)
+map <leader>w <Action>(SaveAll)
 map <leader>sg <Action>(SearchEverywhere)
 map gr <Action>(FindUsages)
 map gi <Action>(GotoImplementation)
@@ -60,5 +64,6 @@ map <leader>q <Action>(ShowErrorDescription)
 
 map <leader>t :NERDTreeToggle<CR>
 map <leader>f :NERDTreeFind<CR>
-map <Leader> <Plug>(easymotion-prefix)
-map ss <Plug>(easymotion-s2)
+nmap s <Plug>(easymotion-s2)
+vmap s <Plug>(easymotion-s2)
+omap z <Plug>(easymotion-s2)

@@ -13,6 +13,7 @@ set NERDTree
 set highlightedyank
 set commentary
 set argtextobj
+set multiple-cursors
 set textobj-entire
 set ReplaceWithRegister
 set exchange
@@ -29,9 +30,6 @@ vnoremap L g_
 vnoremap J 5j
 vnoremap K 5k
 
-map tn gt
-map tp gT
-
 nnoremap wv :action SplitVertically<CR>
 nnoremap wh :action SplitHorizontally<CR>
 
@@ -42,8 +40,6 @@ nnoremap <c-k> <c-w>k
 
 set idearefactormode=keep
 
-map <leader>dd <Action>(Debug)
-map <leader>rr <Action>(Run)
 map [m <Action>(MethodUp)
 map ]m <Action>(MethodDown)
 map zc <Action>(CollapseRegion)
@@ -57,13 +53,31 @@ map [d <Action>(GotoPreviousError)
 map <leader>sf <Action>(GotoFile)
 map <leader>w <Action>(SaveAll)
 map <leader>sg <Action>(SearchEverywhere)
-map gr <Action>(FindUsages)
+map gu <Action>(FindUsages)
 map gi <Action>(GotoImplementation)
 map gd <Action>(GotoDeclaration)
-map <leader>q <Action>(ShowErrorDescription)
+map gh <Action>(ShowErrorDescription)
+map <leader>? <Action>(RecentFiles)
 
 map <leader>t :NERDTreeToggle<CR>
 map <leader>f :NERDTreeFind<CR>
 nmap s <Plug>(easymotion-s2)
 vmap s <Plug>(easymotion-s2)
 omap z <Plug>(easymotion-s2)
+
+
+" Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
+" Note that the default <A-n> and g<A-n> shortcuts don't work on Mac due to dead keys.
+" <A-n> is used to enter accented text e.g. ñ
+" Feel free to pick your own mappings that are not affected. I like to use <leader>
+nmap <leader><C-n> <Plug>AllWholeOccurrences
+xmap <leader><C-n> <Plug>AllWholeOccurrences
+nmap <leader>g<C-n> <Plug>AllOccurrences
+xmap <leader>g<C-n> <Plug>AllOccurrences

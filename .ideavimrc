@@ -5,10 +5,13 @@ set number
 set relativenumber
 set incsearch
 set hlsearch
+set ignorecase
+set smartcase
 
 
 " https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins
-set easymotion
+" set easymotion
+set sneak
 set NERDTree
 set highlightedyank
 set commentary
@@ -48,6 +51,7 @@ map <leader>zc <Action>(CollapseAllRegions)
 map <leader>zo <Action>(ExpandAllRegions)
 map <leader>ca <Action>(Refactorings.QuickListPopupAction)
 map <leader>rn <Action>(RenameElement)
+map <leader>b <action>(ToggleLineBreakpoint)
 map ]d <Action>(GotoNextError)
 map [d <Action>(GotoPreviousError)
 map <leader>sf <Action>(GotoFile)
@@ -59,11 +63,34 @@ map gd <Action>(GotoDeclaration)
 map gh <Action>(ShowErrorDescription)
 map <leader>? <Action>(RecentFiles)
 
+nmap <leader>gu <action>(Vcs.UpdateProject)
+vmap <leader>gu <action>(Vcs.UpdateProject)
+nmap <leader>gc <action>(CheckinProject)
+vmap <leader>gc <action>(CheckinProject)
+nmap <leader>gp <action>(Vcs.Push)
+vmap <leader>gp <action>(Vcs.Push)
+nmap <leader>gr <action>(ChangesView.Revert)
+vmap <leader>gr <action>(ChangesView.Revert)
+
+
+" mark related
+map mm <action>(ShowBookmarks)
+map ma <action>(ToggleBookmark)
+map ms mS
+map md mD
+map mf mF
+map 's 'S
+map 'd 'D
+map 'f 'F
+
+" NERDTree
 map <leader>t :NERDTreeToggle<CR>
 map <leader>f :NERDTreeFind<CR>
-nmap s <Plug>(easymotion-s2)
-vmap s <Plug>(easymotion-s2)
-omap z <Plug>(easymotion-s2)
+
+" easymotion
+" nmap s <Plug>(easymotion-s2)
+" vmap s <Plug>(easymotion-s2)
+" omap z <Plug>(easymotion-s2)
 
 
 " Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors

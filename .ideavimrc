@@ -25,13 +25,9 @@ set surround
 
 noremap H ^
 nnoremap L g_
-nnoremap J 5j
-nnoremap K 5k
 
 vnoremap H ^
 vnoremap L g_
-vnoremap J 5j
-vnoremap K 5k
 
 nnoremap wv :action SplitVertically<CR>
 nnoremap wh :action SplitHorizontally<CR>
@@ -60,7 +56,7 @@ map <leader>sg <Action>(SearchEverywhere)
 map gu <Action>(FindUsages)
 map gi <Action>(GotoImplementation)
 map gd <Action>(GotoDeclaration)
-map gh <Action>(ShowErrorDescription)
+map K <Action>(ShowErrorDescription)
 map <leader>? <Action>(RecentFiles)
 
 nmap <leader>gu <action>(Vcs.UpdateProject)

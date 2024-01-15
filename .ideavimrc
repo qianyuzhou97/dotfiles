@@ -25,12 +25,16 @@ set surround
 
 noremap H ^
 nnoremap L g_
+nnoremap J 5j
+nnoremap K 5k
 
 vnoremap H ^
 vnoremap L g_
+vnoremap J 5j
+vnoremap K 5k
 
-nnoremap wv :action SplitVertically<CR>
-nnoremap wh :action SplitHorizontally<CR>
+nnoremap sl :action SplitVertically<CR>
+nnoremap sj :action SplitHorizontally<CR>
 
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
@@ -56,8 +60,9 @@ map <leader>sg <Action>(SearchEverywhere)
 map gu <Action>(FindUsages)
 map gi <Action>(GotoImplementation)
 map gd <Action>(GotoDeclaration)
-map K <Action>(ShowErrorDescription)
+map gh <Action>(ShowErrorDescription)
 map <leader>? <Action>(RecentFiles)
+map <c-e> <Action>(RecentChangedFiles)
 
 nmap <leader>gu <action>(Vcs.UpdateProject)
 vmap <leader>gu <action>(Vcs.UpdateProject)
@@ -67,6 +72,8 @@ nmap <leader>gp <action>(Vcs.Push)
 vmap <leader>gp <action>(Vcs.Push)
 nmap <leader>gr <action>(ChangesView.Revert)
 vmap <leader>gr <action>(ChangesView.Revert)
+nmap <leader>gb <action>(Git.Branches)
+vmap <leader>gb <action>(Git.Branches)
 
 
 " mark related

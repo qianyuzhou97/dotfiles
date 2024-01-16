@@ -1,12 +1,17 @@
 let mapleader=' '
 
+" Use system clipboard
 set clipboard+=unnamed
+set clipboard+=ideaput
+
 set number
 set relativenumber
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+" https://github.com/JetBrains/ideavim/wiki/%22ideajoin%22-examples
+set ideajoin
 
 
 " https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins
@@ -22,6 +27,9 @@ set ReplaceWithRegister
 set exchange
 set textobj-indent
 set surround
+" Min number of lines above and below cursor
+set scrolloff=5
+set ideamarks
 
 noremap H ^
 nnoremap L g_
@@ -33,15 +41,32 @@ vnoremap L g_
 vnoremap J 5j
 vnoremap K 5k
 
-nnoremap sl :action SplitVertically<CR>
-nnoremap sj :action SplitHorizontally<CR>
+nnoremap <leader>sl :action SplitVertically<CR>
+nnoremap <leader>sj :action SplitHorizontally<CR>
 
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
-
+map <leader>a <Action>(ShowIntentionActions)
 set idearefactormode=keep
+nnoremap <Leader>/ :noh<CR>
+
+map <leader>qa <Action>(CloseAllEditors)
+map <leader>qq <Action>(CloseEditor)
+map <leader>qo <Action>(CloseAllEditorsButActive)
+
+map <leader>h <Action>(PreviousTab)
+map <leader>l <Action>(NextTab)
+nnoremap <leader>j J
+
+map <leader>rc <Action>(ChooseRunConfiguration)
+map <leader>rd <Action>(DebugClass)
+map <leader>rp <Action>(Replace)
+map <leader>rr <Action>(RunClass)
+
+map <leader>mo <Action>(MoveEditorToOppositeTabGroup)
+
 
 map [m <Action>(MethodUp)
 map ]m <Action>(MethodDown)
@@ -62,19 +87,11 @@ map gi <Action>(GotoImplementation)
 map gd <Action>(GotoDeclaration)
 map gh <Action>(ShowErrorDescription)
 map <leader>? <Action>(RecentFiles)
-map <c-e> <Action>(RecentChangedFiles)
+map <c-e> <Action>(RecentLocations)
 
-nmap <leader>gu <action>(Vcs.UpdateProject)
-vmap <leader>gu <action>(Vcs.UpdateProject)
-nmap <leader>gc <action>(CheckinProject)
-vmap <leader>gc <action>(CheckinProject)
-nmap <leader>gp <action>(Vcs.Push)
-vmap <leader>gp <action>(Vcs.Push)
-nmap <leader>gr <action>(ChangesView.Revert)
-vmap <leader>gr <action>(ChangesView.Revert)
-nmap <leader>gb <action>(Git.Branches)
-vmap <leader>gb <action>(Git.Branches)
-
+map <leader>gu <action>(Vcs.UpdateProject)
+map <leader>gr <action>(ChangesView.Revert)
+map <leader>gg <Action>(Vcs.QuickListPopupAction)
 
 " mark related
 map mm <action>(ShowBookmarks)

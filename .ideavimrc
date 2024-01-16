@@ -66,6 +66,7 @@ map <leader>rp <Action>(Replace)
 map <leader>rr <Action>(RunClass)
 
 map <leader>mo <Action>(MoveEditorToOppositeTabGroup)
+map <leader>zz <Action>(HideAllWindows)
 
 
 map [m <Action>(MethodUp)

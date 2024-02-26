@@ -97,7 +97,7 @@ map <leader>sg <Action>(SearchEverywhere)
 map gu <Action>(FindUsages)
 map gi <Action>(GotoImplementation)
 map gd <Action>(GotoDeclaration)
-map gh <Action>(ShowErrorDescription)
+map gh <Action>(ShowHoverInfo)
 map <leader>? <Action>(RecentFiles)
 map <c-e> <Action>(RecentLocations)
 

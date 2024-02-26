@@ -1,8 +1,18 @@
 let mapleader=' '
 
+"" Choosing handlers in conflicting Intellij/IdeaVim keymaps =======
+sethandler <C-i> n-v-i:vim
+sethandler <C-o> n-v-i:vim
+sethandler <C-d> n-v-i:vim
+sethandler <C-u> n-v-i:vim
+sethandler <C-h> n-v-i:vim
+sethandler <C-j> n-v-i:vim
+sethandler <C-k> n-v-i:vim
+sethandler <C-l> n-v-i:vim
+
 " Use system clipboard
-set clipboard+=unnamed
 set clipboard+=ideaput
+set clipboard+=unnamedplus
 
 set number
 set relativenumber
@@ -12,6 +22,7 @@ set ignorecase
 set smartcase
 " https://github.com/JetBrains/ideavim/wiki/%22ideajoin%22-examples
 set ideajoin
+set showmode
 
 
 " https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins
@@ -28,16 +39,16 @@ set exchange
 set textobj-indent
 set surround
 " Min number of lines above and below cursor
-set scrolloff=5
+set scrolloff=10
 set ideamarks
 
-noremap H ^
-nnoremap L g_
+noremap B ^
+nnoremap E g_
 nnoremap J 5j
 nnoremap K 5k
 
-vnoremap H ^
-vnoremap L g_
+vnoremap B ^
+vnoremap E g_
 vnoremap J 5j
 vnoremap K 5k
 
@@ -69,8 +80,8 @@ map <leader>mo <Action>(MoveEditorToOppositeTabGroup)
 map <leader>zz <Action>(HideAllWindows)
 
 
-map [m <Action>(MethodUp)
-map ]m <Action>(MethodDown)
+map [[ <Action>(MethodUp)
+map ]] <Action>(MethodDown)
 map zc <Action>(CollapseRegion)
 map zo <Action>(ExpandRegion)
 map <leader>zc <Action>(CollapseAllRegions)

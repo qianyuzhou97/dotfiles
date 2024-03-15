@@ -1,4 +1,5 @@
 let mapleader=' '
+set timeoutlen=400
 
 "" Choosing handlers in conflicting Intellij/IdeaVim keymaps =======
 sethandler <C-i> n-v-i:vim
@@ -9,6 +10,9 @@ sethandler <C-h> n-v-i:vim
 sethandler <C-j> n-v-i:vim
 sethandler <C-k> n-v-i:vim
 sethandler <C-l> n-v-i:vim
+sethandler <C-t> n-v-i:vim
+sethandler <C-f> n-v-i:vim
+sethandler <C-m> n-v-i:vim
 
 " Use system clipboard
 set clipboard+=ideaput
@@ -26,17 +30,83 @@ set showmode
 
 
 " https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins
-" set easymotion
-set sneak
+set easymotion
+" set sneak
+""" NERDTree plugin  --------------------------------
+" Emulates NERDTree
+" Basic Commands:
+"   Ctrl-n  Open NERDTree (mapped bellow)
+"   q	    Close the NERDTree windowe
+"   o   	Open files, directories and bookmarks
+"   go   	Open selected file, but leave cursor in the NERDTree
+"   i   	Open selected file in a split window
+"   gi   	Same as i, but leave the cursor on the NERDTree
+"   s   	Open selected file in a new vsplit
+"   gs   	Same as s, but leave the cursor on the NERDTree
+"   <C-J>	Jump down to next sibling of the current directory
+"   <C-K>	Jump up to previous sibling of the current directory
+"   R	    Recursively refresh the current root
+"   m	    Display the NERDTree menu
+" See  https://github.com/JetBrains/ideavim/wiki/NERDTree-support for details
 set NERDTree
 set highlightedyank
 set commentary
+""" argtextobj  Plugin  --------------------------------
+" Emulates argtextobj. Provides a text-object 'a' for function arguments
+" Text object
+" ai
+" aa
+" See https://www.vim.org/scripts/script.php?script_id=2699 for details
 set argtextobj
+
+
+""" multiple-cursors plugin  --------------------------------
+" Emulates vim-multiple-cursors
+" Basic Commands:
+"   <C-n> start multicursor
+"   <C-n> next match
+"   <C-x> skip next match
+"   <C-p> remove current match and go back to previous one
+" See https://github.com/terryma/vim-multiple-cursors for details
 set multiple-cursors
+map mc <A-n>
+map mx <A-x>
+map mp <A-p>
+
+""" textobj-entire plugin  --------------------------------
+" Emulates  vim-textobj-entire
+" Basic Commands:
+"   {motion}ae    Apply motion on entire text
+"   {motion}ie    Apply motion on entire text w/o trailing and leading empty lines
+" See https://github.com/kana/vim-textobj-entire for details
 set textobj-entire
+
+""" ReplaceWithRegister plugin  --------------------------------
+" Emulates  ReplaceWithRegister
+" Basic Commands:
+"   [count]["x]grr          Replace [count] lines with the contents of register x.
+"   {Visual}["x]gr          Replace the selection with the contents of register x.
+" See https://github.com/vim-scripts/ReplaceWithRegister for details
 set ReplaceWithRegister
+
+"""  exchange Plugin  --------------------------------
+" Emulates exchange.vim. Text exchange
+" Basic Commands:
+"   cx    First use to define the exchange, second use defines the second and exchange
+"   cxx   Like cx for an entire line
+"   X     Like cx for visual mode
+" See https://www.vim.org/scripts/script.php?script_id=2699 for details
 set exchange
 set textobj-indent
+""" Surround Plugin  --------------------------------
+" Emulates vim-surround. Mappings to easily delete, change and add such surroundings in pairs
+" Basic Commands:
+"   cs   Change surroundings
+"   cst  Change surroundings tag
+"   ds   Delete surroundings
+"   dst  Delete surroundings tag
+"   ys   Surround text object
+" See https://github.com/tpope/vim-surround/blob/master/doc/surround.txt for details
 set surround
 " Min number of lines above and below cursor
 set scrolloff=10
@@ -75,6 +145,7 @@ map <leader>rc <Action>(ChooseRunConfiguration)
 map <leader>rd <Action>(DebugClass)
 map <leader>rp <Action>(Replace)
 map <leader>rr <Action>(RunClass)
+map <leader>rs <Action>(Jdbc.RunQueryInConsole)
 
 map <leader>mo <Action>(MoveEditorToOppositeTabGroup)
 map <leader>zz <Action>(HideAllWindows)
@@ -100,43 +171,36 @@ map gd <Action>(GotoDeclaration)
 map gh <Action>(ShowHoverInfo)
 map <leader>? <Action>(RecentFiles)
 map <c-e> <Action>(RecentLocations)
+map <c-z> <Action>(ToggleZenMode)
+map <c-t> <Action>(ActivateTerminalToolWindow)
+map <leader>t <Action>(Terminal.OpenInTerminal)
 
 map <leader>gu <action>(Vcs.UpdateProject)
 map <leader>gr <action>(ChangesView.Revert)
 map <leader>gg <Action>(Vcs.QuickListPopupAction)
 
-" mark related
-map mm <action>(ShowBookmarks)
-map ma <action>(ToggleBookmark)
-map ms mS
-map md mD
-map mf mF
-map 's 'S
-map 'd 'D
-map 'f 'F
-
 " NERDTree
-map <leader>t :NERDTreeToggle<CR>
-map <leader>f :NERDTreeFind<CR>
+map <c-m> :NERDTreeToggle<CR>
+map <c-f> :NERDTreeFind<CR>
 
 " easymotion
-" nmap s <Plug>(easymotion-s2)
-" vmap s <Plug>(easymotion-s2)
-" omap z <Plug>(easymotion-s2)
+nmap s <Plug>(easymotion-s2)
+vmap s <Plug>(easymotion-s2)
+omap z <Plug>(easymotion-s2)
 
 
 " Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
-nmap <C-n> <Plug>NextWholeOccurrence
-xmap <C-n> <Plug>NextWholeOccurrence
-nmap g<C-n> <Plug>NextOccurrence
-xmap g<C-n> <Plug>NextOccurrence
-xmap <C-x> <Plug>SkipOccurrence
-xmap <C-p> <Plug>RemoveOccurrence
+" nmap <C-n> <Plug>NextWholeOccurrence
+" xmap <C-n> <Plug>NextWholeOccurrence
+" nmap g<C-n> <Plug>NextOccurrence
+" xmap g<C-n> <Plug>NextOccurrence
+" xmap <C-x> <Plug>SkipOccurrence
+" xmap <C-p> <Plug>RemoveOccurrence
 
 " Note that the default <A-n> and g<A-n> shortcuts don't work on Mac due to dead keys.
 " <A-n> is used to enter accented text e.g. ñ
 " Feel free to pick your own mappings that are not affected. I like to use <leader>
-nmap <leader><C-n> <Plug>AllWholeOccurrences
-xmap <leader><C-n> <Plug>AllWholeOccurrences
-nmap <leader>g<C-n> <Plug>AllOccurrences
-xmap <leader>g<C-n> <Plug>AllOccurrences
+" nmap <leader><C-n> <Plug>AllWholeOccurrences
+" xmap <leader><C-n> <Plug>AllWholeOccurrences
+" nmap <leader>g<C-n> <Plug>AllOccurrences
+" xmap <leader>g<C-n> <Plug>AllOccurrences

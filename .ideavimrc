@@ -36,7 +36,7 @@ set easymotion
 " Emulates NERDTree
 " Basic Commands:
 "   Ctrl-n  Open NERDTree (mapped bellow)
-"   q	    Close the NERDTree windowe
+"   q	    Close the NERDTree window
 "   o   	Open files, directories and bookmarks
 "   go   	Open selected file, but leave cursor in the NERDTree
 "   i   	Open selected file in a split window
@@ -54,7 +54,7 @@ set commentary
 """ argtextobj  Plugin  --------------------------------
 " Emulates argtextobj. Provides a text-object 'a' for function arguments
 " Text object
-" ai
+" ia
 " aa
 " See https://www.vim.org/scripts/script.php?script_id=2699 for details
 set argtextobj
@@ -112,15 +112,10 @@ set surround
 set scrolloff=10
 set ideamarks
 
-noremap B ^
-nnoremap E g_
-nnoremap J 5j
-nnoremap K 5k
-
-vnoremap B ^
-vnoremap E g_
-vnoremap J 5j
-vnoremap K 5k
+map B ^
+map E g_
+map J 5j
+map K 5k
 
 nnoremap <leader>sl :action SplitVertically<CR>
 nnoremap <leader>sj :action SplitHorizontally<CR>
